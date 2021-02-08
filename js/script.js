@@ -82,7 +82,7 @@
 	}
 
 	const fetchApi = (query) => {
-		return fetch(`https://kisahnabi-api-zhirrr.vercel.app/api/searchnabi?q=${query}`)
+		return fetch(`https://cors-anywhere.herokuapp.com/kisahnabi-api-zhirrr.vercel.app/api/searchnabi?q=${query}`)
 				.then(response => response.json())
 				.then(data => data);
 	}
