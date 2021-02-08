@@ -49,22 +49,36 @@
 	}
 	const setContentRight = (dataApi, contentHtml) => {
 
-		const kalimat = dataApi.nabi.kisah;
-		const hasilSplit = kalimat.split(".");
+		let sentences = dataApi.nabi.kisah;
+		sentences = sentences.split(".");
+		let tempSentence = "";
 		contentHtml.innerHTML = "";
 
-		let j=0;
-
-		for(let i=0; i<Math.ceil(hasilSplit.length/4); i++){
-			let gabung = "";
-			while(j < (i+1) * 4){
-				gabung += hasilSplit[j] + ". ";
-				console.log(`nilai j : ${j}`)
-				j++;
+		sentences.forEach((sentence, index)=>{
+			tempSentence += sentence;
+			if((index+1) % 4 === 0 || index == (sentences.length-1)){
+				contentHtml.innerHTML += `<p>${tempSentence}</p>`;
+				tempSentence = "";
 			}
+		});
 
-			contentHtml.innerHTML += `<p>${gabung}</p>`;
-		}
+
+		// const kalimat = dataApi.nabi.kisah;
+		// const hasilSplit = kalimat.split(".");
+		// contentHtml.innerHTML = "";
+
+		// let j=0;
+
+		// for(let i=0; i<Math.ceil(hasilSplit.length/4); i++){
+		// 	let gabung = "";
+		// 	while(j < (i+1) * 4){
+		// 		gabung += hasilSplit[j] + ". ";
+		// 		console.log(`nilai j : ${j}`)
+		// 		j++;
+		// 	}
+
+		// 	contentHtml.innerHTML += `<p>${gabung}</p>`;
+		// }
 	}
 
 	const fetchApi = (query) => {
