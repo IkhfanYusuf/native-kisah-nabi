@@ -82,7 +82,7 @@
 	}
 
 	const fetchApi = (query) => {
-		return fetch(`https://cors-proxy.htmldriven.com/?url=https://kisahnabi-api-zhirrr.vercel.app/api/searchnabi?q=${query}`)
+		return fetch(`http://alloworigin.com/get?url=https://kisahnabi-api-zhirrr.vercel.app/api/searchnabi?q=${query}`)
 				.then(response => response.json())
 				.then(data => data);
 	}
